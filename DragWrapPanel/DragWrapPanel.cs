@@ -63,13 +63,22 @@ namespace DragWrapPanel
 
         private void T_DragLeave(object sender, DragEventArgs e)
         {
+        //    Drag(sender, e);
+
         }
 
         private void T_DragOver(object sender, DragEventArgs e)
         {
+            Drag(sender, e);
+
         }
 
         private void T_Drop(object sender, DragEventArgs e)
+        {
+      //      Drag(sender, e);
+        }
+
+        private void Drag(object sender, DragEventArgs e)
         {
             var source = e.Data.GetData(typeof(T));
 
@@ -84,7 +93,10 @@ namespace DragWrapPanel
 
         private void T_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            DragDrop.DoDragDrop((DependencyObject)sender, sender, DragDropEffects.Move);
+            if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
+            {
+                DragDrop.DoDragDrop((DependencyObject)sender, sender, DragDropEffects.Move);
+            }
         }
 
         private void T_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)

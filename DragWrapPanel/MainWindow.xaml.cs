@@ -10,6 +10,11 @@ namespace DragWrapPanel
         public MainWindow()
         {
             InitializeComponent();
+            KeyDown += MainWindow_KeyDown;
+        }
+
+        private void MainWindow_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
         }
     }
 }
