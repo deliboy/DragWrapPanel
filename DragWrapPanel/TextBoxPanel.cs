@@ -1,9 +1,7 @@
-using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using System.Linq;
 
 namespace DragWrapPanel
 {
@@ -12,7 +10,6 @@ namespace DragWrapPanel
         public TextBoxPanel()
         {
             Init();
-            //   KeyDown += TextBoxPanel_KeyDown;
         }
 
         public ObservableCollection<OrakaiMenu> Menus { get; set; }
@@ -31,17 +28,6 @@ namespace DragWrapPanel
                     Name = img.Name,
                     IconPath = img.FullName
                 });
-
-                //Image myImage = new Image();
-                //myImage.Width = 48;
-                //myImage.Height = 48;
-                //BitmapImage myImageSource = new BitmapImage();
-                //myImageSource.BeginInit();
-                //myImageSource.UriSource = new Uri(img.FullName);
-                //myImageSource.EndInit();
-                //myImage.Source = myImageSource;
-
-                //   Add(myImage);
             }
 
             foreach (var i in Menus)
@@ -53,7 +39,6 @@ namespace DragWrapPanel
                 c.KeyDown += TextBoxPanel_KeyDown;
                 Add(c);
             }
-     
         }
 
         private void TextBoxPanel_KeyDown(object sender, KeyEventArgs e)
@@ -70,11 +55,11 @@ namespace DragWrapPanel
             }
         }
 
-        private void HotKeyRemove( OrakaiMenu sender,  Key key)
+        private void HotKeyRemove(OrakaiMenu sender, Key key)
         {
             var list = this.Menus.Where(x => x != sender && x.HotKey == (int)key);
 
-            foreach(var l in list)
+            foreach (var l in list)
             {
                 l.SetHotKey(Key.None);
             }

@@ -38,9 +38,7 @@ namespace DragWrapPanel
                 _items = new ObservableCollection<T>();
             }
 
-            item.MouseMove += T_MouseMove;
             item.DragEnter += T_DragEnter;
-            item.DragLeave += T_DragLeave;
             item.DragOver += T_DragOver;
             item.Drop += T_Drop;
             item.MouseDown += T_MouseDown;
@@ -61,21 +59,14 @@ namespace DragWrapPanel
             }
         }
 
-        private void T_DragLeave(object sender, DragEventArgs e)
-        {
-        //    Drag(sender, e);
-
-        }
-
         private void T_DragOver(object sender, DragEventArgs e)
         {
             Drag(sender, e);
-
         }
 
         private void T_Drop(object sender, DragEventArgs e)
         {
-      //      Drag(sender, e);
+            //      Drag(sender, e);
         }
 
         private void Drag(object sender, DragEventArgs e)
@@ -97,10 +88,6 @@ namespace DragWrapPanel
             {
                 DragDrop.DoDragDrop((DependencyObject)sender, sender, DragDropEffects.Move);
             }
-        }
-
-        private void T_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
-        {
         }
     }
 }

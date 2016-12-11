@@ -1,13 +1,9 @@
 using System;
-using System.Linq;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Input;
 
 namespace DragWrapPanel
 {
- 
-
     public class OrakaiMenu : INotifyPropertyChanged
     {
         //public event EventHandler<HotKeyBindEventArgs> HotKeyBinded;
